@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <!-- Authorization Plugin - ПЕРВЫЙ -->
+  <AddIn Type="Application">
+    <AddInId>C1D2E3F4-A5B6-7890-CDEF-123456789012</AddInId>
+    <Name>CivilX Auth Plugin</Name>
+    <Assembly>CivilX_export\CivilXAuthPlugin.dll</Assembly>
+    <FullClassName>CivilXAuthPlugin.AuthApplication</FullClassName>
+    <VendorId>CivilX</VendorId>
+    <VendorDescription>CivilX Authentication Plugin</VendorDescription>
+  </AddIn>
+  
+  <!-- DataViewer Plugin - ВТОРОЙ -->
+  <AddIn Type="Application">
+    <AddInId>B2C3D4E5-F6A7-8901-BCDE-F23456789012</AddInId>
+    <Name>Revit Exporter Application</Name>
+    <Assembly>CivilX_export\RevitExporterAddin.dll</Assembly>
+    <FullClassName>RevitExporterAddin.RevitApplication</FullClassName>
+    <VendorId>CivilX</VendorId>
+    <VendorDescription>CivilX DataViewer Plugin</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <AddInId>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</AddInId>
+    <Name>Revit Exporter - Project Management</Name>
+    <Assembly>CivilX_export\RevitExporterAddin.dll</Assembly>
+    <FullClassName>RevitExporterAddin.ExportCommand</FullClassName>
+    <Text>Data Manager</Text>
+    <Description>Project management and data export from Revit to CSV</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Discipline>Any</Discipline>
+    <VendorId>CivilX</VendorId>
+    <VendorDescription>CivilX DataViewer Plugin</VendorDescription>
+  </AddIn>
+</RevitAddIns>

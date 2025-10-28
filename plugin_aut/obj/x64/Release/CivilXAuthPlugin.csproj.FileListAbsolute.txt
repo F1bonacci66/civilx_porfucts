@@ -1,0 +1,14 @@
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Release\CivilXAuthPlugin.dll.config
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Release\CivilXAuthPlugin.dll
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Release\CivilXAuthPlugin.pdb
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin.csproj.AssemblyReference.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\AuthWindow.baml
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\AuthWindow.g.cs
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin_MarkupCompile.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin.g.resources
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin.csproj.CoreCompileInputs.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAu.490CC4B3.Up2Date
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin.dll
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Release\CivilXAuthPlugin.pdb
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Release\CivilX.Shared.dll
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Release\CivilX.Shared.pdb

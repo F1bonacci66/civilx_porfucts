@@ -1,0 +1,63 @@
+<Window x:Class="RevitExporterAddin.Views.ExportProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Экспорт данных из Revit" Height="300" Width="500"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#F5F5F5">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="🚀 Экспорт данных из Revit" 
+                   FontSize="18" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Общая статистика -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Обработано моделей: " FontWeight="SemiBold"/>
+            <TextBlock x:Name="ProcessedModelsText" Text="0" FontWeight="Bold" Foreground="Green"/>
+            <TextBlock Text=" / " Margin="5,0"/>
+            <TextBlock x:Name="TotalModelsText" Text="0" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Осталось обработать: " FontWeight="SemiBold"/>
+            <TextBlock x:Name="RemainingModelsText" Text="0" FontWeight="Bold" Foreground="Orange"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="⏱️ Затраченное время: " FontWeight="SemiBold"/>
+            <TextBlock x:Name="ElapsedTimeText" Text="00:00" FontWeight="Bold" Foreground="Purple"/>
+        </StackPanel>
+
+        <!-- Текущая модель -->
+        <TextBlock Grid.Row="4" Text="Текущая модель:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBlock Grid.Row="5" x:Name="CurrentModelText" Text="Подготовка к экспорту..." 
+                   FontSize="12" Foreground="Blue" TextWrapping="Wrap" Margin="0,0,0,15"/>
+
+        <!-- Прогресс текущей модели -->
+        <TextBlock Grid.Row="6" Text="Прогресс обработки:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <ProgressBar Grid.Row="7" x:Name="CurrentModelProgressBar" 
+                     Height="20" Margin="0,0,0,5" 
+                     Background="#E0E0E0" Foreground="#4CAF50"/>
+        <TextBlock Grid.Row="8" x:Name="ProgressText" Text="0%" 
+                   HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,0"/>
+
+        <!-- Кнопка отмены -->
+        <Button Grid.Row="9" x:Name="CancelButton" Content="Отмена" 
+                Width="100" Height="30" HorizontalAlignment="Center" Margin="0,20,0,0"
+                Click="CancelButton_Click" Background="#FF5722" Foreground="White"/>
+    </Grid>
+</Window>

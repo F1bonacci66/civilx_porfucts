@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <AddInId>C1D2E3F4-A5B6-7890-CDEF-123456789012</AddInId>
+    <Name>CivilX Auth Plugin</Name>
+    <Assembly>CivilX\plugin_aut\CivilXAuthPlugin.dll</Assembly>
+    <FullClassName>CivilXAuthPlugin.AuthApplication</FullClassName>
+    <VendorId>CivilX</VendorId>
+    <VendorDescription>CivilX Authentication Plugin</VendorDescription>
+  </AddIn>
+</RevitAddIns>

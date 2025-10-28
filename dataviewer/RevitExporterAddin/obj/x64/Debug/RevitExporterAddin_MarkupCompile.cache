@@ -1,0 +1,20 @@
+﻿RevitExporterAddin
+
+
+library
+C#
+.cs
+C:\Проекты\CivilX Сайт\Продукты\CivilX\dataviewer\RevitExporterAddin\obj\x64\Debug\
+RevitExporterAddin
+none
+false
+DEBUG;TRACE
+
+13752742213
+
+361624354340
+20-1398372516
+MainWindow.xaml;Views\MainWindow.xaml;Views\ProjectView.xaml;Views\ExportView.xaml;Views\TabContentView.xaml;Views\AddProjectWindow.xaml;Views\AddExportWindow.xaml;Views\InputDialog.xaml;Views\RenameWindow.xaml;Views\CreateProjectWindow.xaml;Views\ExportProgressWindow.xaml;Views\CategoryFilterWindow.xaml;Views\SingleBlockFilterWindow.xaml;
+
+False
+

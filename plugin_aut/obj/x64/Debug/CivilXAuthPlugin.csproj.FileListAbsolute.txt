@@ -1,0 +1,11 @@
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin.csproj.AssemblyReference.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\AuthWindow.baml
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\AuthWindow.g.cs
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin_MarkupCompile.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin.g.resources
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin.csproj.CoreCompileInputs.cache
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Debug\CivilXAuthPlugin.dll.config
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Debug\CivilXAuthPlugin.dll
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\bin\Debug\CivilXAuthPlugin.pdb
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin.dll
+C:\Проекты\CivilX Сайт\Продукты\CivilX\plugin_aut\obj\x64\Debug\CivilXAuthPlugin.pdb
