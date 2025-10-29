@@ -1,0 +1,191 @@
+<Window x:Class="RevitExporterAddin.Views.CategoryFilterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Фильтр категорий" Height="800" Width="1000"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок с информацией о выборе -->
+        <StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal">
+            <TextBlock Text="Выбрано категорий: " FontWeight="Bold"/>
+            <TextBlock x:Name="SelectedCountText" Text="0" FontWeight="Bold" Foreground="Blue"/>
+            <TextBlock Text=" из " FontWeight="Bold"/>
+            <TextBlock x:Name="TotalCountText" Text="0" FontWeight="Bold" Foreground="Blue"/>
+        </StackPanel>
+
+        <!-- Вкладки с категориями -->
+        <TabControl Grid.Row="1" Margin="10,0,10,0">
+            <TabItem Header="1. Элементы модели">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Кнопки управления -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllModelBtn" Content="Выбрать все" Click="SelectAllModel_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllModelBtn" Content="Снять все" Click="DeselectAllModel_Click"/>
+                    </StackPanel>
+                    
+                    <!-- Список категорий -->
+                    <ListBox Grid.Row="1" x:Name="ModelCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Элементы модели]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="2. Инженерные системы (MEP)">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllMEPBtn" Content="Выбрать все" Click="SelectAllMEP_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllMEPBtn" Content="Снять все" Click="DeselectAllMEP_Click"/>
+                    </StackPanel>
+                    
+                    <ListBox Grid.Row="1" x:Name="MEPCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Инженерные системы (MEP)]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="3. Аналитические модели">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllAnalyticalBtn" Content="Выбрать все" Click="SelectAllAnalytical_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllAnalyticalBtn" Content="Снять все" Click="DeselectAllAnalytical_Click"/>
+                    </StackPanel>
+                    
+                    <ListBox Grid.Row="1" x:Name="AnalyticalCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Аналитические модели]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="4. Аннотации и оформление">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllAnnotationsBtn" Content="Выбрать все" Click="SelectAllAnnotations_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllAnnotationsBtn" Content="Снять все" Click="DeselectAllAnnotations_Click"/>
+                    </StackPanel>
+                    
+                    <ListBox Grid.Row="1" x:Name="AnnotationsCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Аннотации и оформление]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="5. Организация проекта и виды">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllProjectBtn" Content="Выбрать все" Click="SelectAllProject_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllProjectBtn" Content="Снять все" Click="DeselectAllProject_Click"/>
+                    </StackPanel>
+                    
+                    <ListBox Grid.Row="1" x:Name="ProjectCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Организация проекта и виды]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="6. Данные и системные категории">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+                        <Button x:Name="SelectAllSystemBtn" Content="Выбрать все" Click="SelectAllSystem_Click" Margin="0,0,10,0"/>
+                        <Button x:Name="DeselectAllSystemBtn" Content="Снять все" Click="DeselectAllSystem_Click"/>
+                    </StackPanel>
+                    
+                    <ListBox Grid.Row="1" x:Name="SystemCategoriesListBox" 
+                             ItemsSource="{Binding CategoryBlocks[Данные и системные категории]}"
+                             Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" 
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="2"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Кнопки управления -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button x:Name="SelectAllGlobalBtn" Content="Выбрать все категории" Click="SelectAllGlobal_Click" Margin="0,0,10,0"/>
+            <Button x:Name="DeselectAllGlobalBtn" Content="Снять все категории" Click="DeselectAllGlobal_Click" Margin="0,0,10,0"/>
+            <Button x:Name="OKButton" Content="OK" Click="OK_Click" Width="80" Margin="0,0,10,0"/>
+            <Button x:Name="CancelButton" Content="Отмена" Click="Cancel_Click" Width="80"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,8 @@
+﻿Ошибка экспорта: Ошибка открытия файла Revit:
+Ошибка открытия файла: A managed exception was thrown by Revit or by one of its external applications.
+Тип исключения: InternalException
+Файл: C:\RevitExporter\Проекты\привет\Тестовый запуск\Вкладка 1\Модели\Тестовая модель 1.rvt
+Размер файла: 5922816 байт
+Файл: C:\RevitExporter\Проекты\привет\Тестовый запуск\Вкладка 1\Модели\Тестовая модель 1.rvt
+Время: 06.09.2025 14:24:15
+StackTrace:    в RevitExporterAddin.Views.MainWindow.ExportRvtFileData(String rvtFilePath, String outputFilePath, ExportProgressWindow progressWindow, Int32 currentIndex, Int32 totalFiles)

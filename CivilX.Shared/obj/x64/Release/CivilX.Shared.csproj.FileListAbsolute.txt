@@ -4,3 +4,9 @@ C:\Проекты\CivilX Сайт\Продукты\CivilX\CivilX.Shared\obj\x64\
 C:\Проекты\CivilX Сайт\Продукты\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.csproj.CoreCompileInputs.cache
 C:\Проекты\CivilX Сайт\Продукты\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.dll
 C:\Проекты\CivilX Сайт\Продукты\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.pdb
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\bin\x64\Release\CivilX.Shared.dll
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\bin\x64\Release\CivilX.Shared.pdb
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.csproj.AssemblyReference.cache
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.csproj.CoreCompileInputs.cache
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.dll
+C:\Projects\CivilX\Products\CivilX\CivilX.Shared\obj\x64\Release\CivilX.Shared.pdb

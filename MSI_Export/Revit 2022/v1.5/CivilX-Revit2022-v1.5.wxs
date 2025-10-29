@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" 
+           Name="CivilX Revit 2022 Plugin" 
+           Language="1033" 
+           Version="1.5.0.0" 
+           Manufacturer="CivilX" 
+           UpgradeCode="3D98D0FF-D0B4-4E32-B19B-22F2BEE35F97">
+
+    <Package InstallerVersion="200" 
+             Compressed="yes" 
+             InstallScope="perMachine" 
+             Description="CivilX Revit 2022 Plugin Installer" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+      <Feature Id="ProductFeature" Title="CivilX Revit 2022 Plugin" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="RevitAddinComponents" />
+    </Feature>
+
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
+    </UI>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="CivilX">
+          <Directory Id="CivilXExportFolder" Name="CivilX_export" />
+        </Directory>
+      </Directory>
+      <Directory Id="CommonAppDataFolder">
+        <Directory Id="AutodeskFolder" Name="Autodesk">
+          <Directory Id="RevitFolder" Name="Revit">
+            <Directory Id="AddinsFolder" Name="Addins">
+              <Directory Id="Revit2022Folder" Name="2022" />
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="ProductComponents" Directory="CivilXExportFolder">
+      <!-- DLL files in CivilX_export subfolder -->
+      <Component Id="CivilXSharedDll" Guid="*">
+        <File Id="CivilXSharedDllFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\CivilX.Shared.dll" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="CivilXAuthPluginDll" Guid="*">
+        <File Id="CivilXAuthPluginDllFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\CivilXAuthPlugin.dll" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="RevitExporterAddinDll" Guid="*">
+        <File Id="RevitExporterAddinDllFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\RevitExporterAddin.dll" 
+              KeyPath="yes" />
+      </Component>
+
+      <!-- Icon files -->
+      <Component Id="MainIcon" Guid="*">
+        <File Id="MainIconFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\main_icon.jpg" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="AuthIcon16" Guid="*">
+        <File Id="AuthIcon16File" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\auth_16.png" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="AuthIcon32" Guid="*">
+        <File Id="AuthIcon32File" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\auth_32.png" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="DataViewerIcon16" Guid="*">
+        <File Id="DataViewerIcon16File" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\dataviewer_16.png" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="DataViewerIcon32" Guid="*">
+        <File Id="DataViewerIcon32File" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\dataviewer_32.png" 
+              KeyPath="yes" />
+      </Component>
+
+      <!-- PDB files (optional, for debugging) -->
+      <Component Id="CivilXSharedPdb" Guid="*">
+        <File Id="CivilXSharedPdbFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\CivilX.Shared.pdb" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="CivilXAuthPluginPdb" Guid="*">
+        <File Id="CivilXAuthPluginPdbFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\CivilXAuthPlugin.pdb" 
+              KeyPath="yes" />
+      </Component>
+
+      <Component Id="RevitExporterAddinPdb" Guid="*">
+        <File Id="RevitExporterAddinPdbFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\RevitExporterAddin.pdb" 
+              KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="RevitAddinComponents" Directory="Revit2022Folder">
+      <!-- Main .addin file in Revit Addins folder -->
+      <Component Id="CivilXAddin" Guid="*">
+        <File Id="CivilXAddinFile" 
+              Source="C:\Projects\CivilX\Products\CivilX\CivilX_export\CivilX.addin" 
+              KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Product>
+</Wix>

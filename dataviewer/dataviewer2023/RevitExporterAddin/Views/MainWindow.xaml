@@ -1,0 +1,245 @@
+<Window x:Class="RevitExporterAddin.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CivilX DataViewer" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="White">
+    
+    <Grid>
+        <!-- Экран авторизации - УБРАН -->
+        <Grid x:Name="AuthScreen" Visibility="Collapsed">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#1a1a1a" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            
+            <!-- Заголовок -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
+                <TextBlock Text="CIVIL" 
+                          FontSize="48" 
+                          FontWeight="Bold" 
+                          Foreground="White" 
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,20"/>
+                <TextBlock Text="DataViewer для Revit" 
+                          FontSize="24" 
+                          Foreground="#14b8a6" 
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,40"/>
+            </StackPanel>
+            
+            <!-- Контейнер авторизации -->
+            <Border Background="#1F2937" 
+                    BorderBrush="#374151" 
+                    BorderThickness="1" 
+                    Padding="40" 
+                    Width="500" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+                
+                <StackPanel>
+                    <!-- Вкладки авторизации -->
+                    <Grid Margin="0,0,0,30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button x:Name="LoginTabButton" 
+                                Grid.Column="0"
+                                Content="Вход" 
+                                Background="Transparent" 
+                                Foreground="#14b8a6" 
+                                BorderThickness="0,0,0,2" 
+                                BorderBrush="#14b8a6"
+                                FontSize="16" 
+                                FontWeight="SemiBold"
+                                Padding="20,15"
+                                Click="LoginTabButton_Click"/>
+                        
+                        <Button x:Name="RegisterTabButton" 
+                                Grid.Column="1"
+                                Content="Регистрация" 
+                                Background="Transparent" 
+                                Foreground="White" 
+                                BorderThickness="0" 
+                                FontSize="16" 
+                                FontWeight="SemiBold"
+                                Padding="20,15"
+                                Click="RegisterTabButton_Click"/>
+                    </Grid>
+                    
+                    <!-- Сообщения об ошибках/успехе -->
+                    <Border x:Name="ErrorMessage" 
+                            Background="#FEF2F2" 
+                            BorderBrush="#ef4444" 
+                            BorderThickness="1" 
+                            Padding="15" 
+                            Margin="0,0,0,20" 
+                            Visibility="Collapsed">
+                        <TextBlock x:Name="ErrorMessageText" 
+                                  Foreground="#fca5a5" 
+                                  TextWrapping="Wrap"/>
+                    </Border>
+                    
+                    <Border x:Name="SuccessMessage" 
+                            Background="#F0FDF4" 
+                            BorderBrush="#22c55e" 
+                            BorderThickness="1" 
+                            Padding="15" 
+                            Margin="0,0,0,20" 
+                            Visibility="Collapsed">
+                        <TextBlock x:Name="SuccessMessageText" 
+                                  Foreground="#86efac" 
+                                  TextWrapping="Wrap"/>
+                    </Border>
+                    
+                    <!-- Форма входа -->
+                    <StackPanel x:Name="LoginForm">
+                        <TextBlock Text="Email" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <TextBox x:Name="LoginEmail" 
+                                Background="#111827" 
+                                Foreground="White" 
+                                BorderBrush="#374151" 
+                                BorderThickness="1" 
+                                Padding="12" 
+                                FontSize="14" 
+                                Margin="0,0,0,20"/>
+                        
+                        <TextBlock Text="Пароль" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <PasswordBox x:Name="LoginPassword" 
+                                    Background="#111827" 
+                                    Foreground="White" 
+                                    BorderBrush="#374151" 
+                                    BorderThickness="1" 
+                                    Padding="12" 
+                                    FontSize="14" 
+                                    Margin="0,0,0,30"/>
+                        
+                        <Button x:Name="LoginButton" 
+                                Content="Войти" 
+                                Background="#14b8a6" 
+                                Foreground="Black" 
+                                FontWeight="SemiBold" 
+                                FontSize="16" 
+                                Padding="20,12" 
+                                BorderThickness="0" 
+                                Click="LoginButton_Click"/>
+                    </StackPanel>
+                    
+                    <!-- Форма регистрации -->
+                    <StackPanel x:Name="RegisterForm" Visibility="Collapsed">
+                        <TextBlock Text="Тип пользователя" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <ComboBox x:Name="RegisterUserType" 
+                                 Background="#111827" 
+                                 Foreground="White" 
+                                 BorderBrush="#374151" 
+                                 BorderThickness="1" 
+                                 Padding="12" 
+                                 FontSize="14" 
+                                 Margin="0,0,0,20">
+                            <ComboBoxItem Content="Выберите тип" IsSelected="True"/>
+                            <ComboBoxItem Content="Пользователь" Tag="user"/>
+                            <ComboBoxItem Content="Организация" Tag="organization"/>
+                        </ComboBox>
+                        
+                        <TextBlock Text="Имя" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <TextBox x:Name="RegisterUserName" 
+                                Background="#111827" 
+                                Foreground="White" 
+                                BorderBrush="#374151" 
+                                BorderThickness="1" 
+                                Padding="12" 
+                                FontSize="14" 
+                                Margin="0,0,0,20"/>
+                        
+                        <TextBlock Text="Логин" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <TextBox x:Name="RegisterLogin" 
+                                Background="#111827" 
+                                Foreground="White" 
+                                BorderBrush="#374151" 
+                                BorderThickness="1" 
+                                Padding="12" 
+                                FontSize="14" 
+                                Margin="0,0,0,20"/>
+                        
+                        <TextBlock Text="Email" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <TextBox x:Name="RegisterEmail" 
+                                Background="#111827" 
+                                Foreground="White" 
+                                BorderBrush="#374151" 
+                                BorderThickness="1" 
+                                Padding="12" 
+                                FontSize="14" 
+                                Margin="0,0,0,20"/>
+                        
+                        <TextBlock Text="Пароль" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <PasswordBox x:Name="RegisterPassword" 
+                                    Background="#111827" 
+                                    Foreground="White" 
+                                    BorderBrush="#374151" 
+                                    BorderThickness="1" 
+                                    Padding="12" 
+                                    FontSize="14" 
+                                    Margin="0,0,0,20"/>
+                        
+                        <TextBlock Text="Подтвердите пароль" 
+                                  Foreground="White" 
+                                  FontWeight="SemiBold" 
+                                  Margin="0,0,0,8"/>
+                        <PasswordBox x:Name="RegisterPasswordConfirm" 
+                                    Background="#111827" 
+                                    Foreground="White" 
+                                    BorderBrush="#374151" 
+                                    BorderThickness="1" 
+                                    Padding="12" 
+                                    FontSize="14" 
+                                    Margin="0,0,0,30"/>
+                        
+                        <Button x:Name="RegisterButton" 
+                                Content="Зарегистрироваться" 
+                                Background="#14b8a6" 
+                                Foreground="Black" 
+                                FontWeight="SemiBold" 
+                                FontSize="16" 
+                                Padding="20,12" 
+                                BorderThickness="0" 
+                                Click="RegisterButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        
+        <!-- Основной экран (существующий функционал) -->
+        <Grid x:Name="MainScreen" Visibility="Visible">
+            <Grid x:Name="MainGrid">
+                <!-- Содержимое будет заменяться полностью -->
+            </Grid>
+            
+            <!-- Кнопка пользователя - УБРАНА -->
+        </Grid>
+    </Grid>
+</Window>
