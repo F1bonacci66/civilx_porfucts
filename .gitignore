@@ -58,8 +58,9 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# Cursor
+# Cursor (исключаем настройки, но оставляем rules/)
 .cursor/
+!.cursor/rules/
 
 # RAR files
 *.rar
